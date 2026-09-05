@@ -98,6 +98,9 @@ h1{
 .tiles{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:14px;
 }
+.tiles.compact{
+  grid-template-columns:repeat(auto-fit, minmax(160px, 220px));
+}
 .tile{
   background:var(--panel); border:1px solid var(--line-soft); border-radius:12px;
   padding:18px 20px;
@@ -181,10 +184,9 @@ stroke="#e8c68c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"
   </div>
 
   <div class="group-label">Assignment</div>
-  <div class="tiles">
+  <div class="tiles compact">
     <div class="tile"><div class="k">Program</div><div class="v">Internship</div></div>
     <div class="tile"><div class="k">Cohort</div><div class="v">2026</div></div>
-    <div class="tile"><div class="k">Role</div><div class="v">Certifying Officer</div></div>
   </div>
 
   <div class="group-label">Contact</div>
