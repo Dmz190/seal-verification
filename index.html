@@ -1,205 +1,199 @@
 <title>Seal Verification</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-/* This page is the digital twin of a printed seal: the certificate it verifies
-   is fixed cream-and-gold on paper, so this page commits to the same single
-   palette rather than following the viewer's light/dark setting - swapping
-   themes here would make the seal look like a different seal than the one
-   printed on the document. Colors are still explicit tokens, just not swapped. */
+/* This page is the digital twin of a printed seal, reached by scanning the QR on
+   an actual navy-and-gold certificate -- so it commits to that same dark/gold
+   system rather than following the viewer's light/dark setting (a page that
+   flipped to light mode would read as a different seal than the one printed
+   on the document). Colors are still explicit tokens, just not swapped. */
 :root{
-  --bg-1:#f7f4ec; --bg-2:#f1ecdf;
-  --ink:#0d1440; --ink-dim:#3d4566; --ink-mute:#8a7f6a;
-  --gold-1:#b3853f; --gold-2:#8a4a0f; --gold-3:#8a4a0f; --gold-4:#96702f;
-  --line: rgba(179,133,63,0.4);
-  --line-soft: rgba(179,133,63,0.2);
+  --bg-1:#0d1424; --bg-2:#080b15;
+  --panel:#121a2e; --panel-alt:#0f1626;
+  --ink:#f4f1e8; --ink-dim:#c3c9de; --ink-mute:#7d84a3;
+  --gold-1:#f0d9a8; --gold-2:#cba875; --gold-3:#a97e42; --gold-4:#8a6531;
+  --line: rgba(203,168,117,0.32);
+  --line-soft: rgba(203,168,117,0.14);
 }
 *{ box-sizing:border-box; }
 body{
   margin:0; min-height:100vh;
-  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  background: radial-gradient(ellipse at 50% 0%, #16203a 0%, var(--bg-1) 45%, var(--bg-2) 100%);
   color:var(--ink);
-  font-family:'Cormorant Garamond', serif;
-  display:flex; align-items:center; justify-content:center;
-  padding:48px 20px;
+  font-family:'IBM Plex Sans', sans-serif;
 }
 .lattice{
   position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzYuODMiIGhlaWdodD0iMjM3LjAwIj48ZyBzdHJva2U9InJnYmEoMTM5LDk0LDQ1LDAuMDQ1KSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBmaWxsPSJub25lIj48bGluZSB4MT0iNjguNDIiIHkxPSIwLjAwIiB4Mj0iMTM2LjgzIiB5Mj0iMzkuNTAiLz48bGluZSB4MT0iMTM2LjgzIiB5MT0iMzkuNTAiIHgyPSIxMzYuODMiIHkyPSIxMTguNTAiLz48bGluZSB4MT0iMTM2LjgzIiB5MT0iMTE4LjUwIiB4Mj0iNjguNDIiIHkyPSIxNTguMDAiLz48bGluZSB4MT0iNjguNDIiIHkxPSIxNTguMDAiIHgyPSIwLjAwIiB5Mj0iMTE4LjUwIi8+PGxpbmUgeDE9IjAuMDAiIHkxPSIxMTguNTAiIHgyPSIwLjAwIiB5Mj0iMzkuNTAiLz48bGluZSB4MT0iMC4wMCIgeTE9IjM5LjUwIiB4Mj0iNjguNDIiIHkyPSIwLjAwIi8+PGxpbmUgeDE9IjY4LjQyIiB5MT0iMC4wMCIgeDI9IjY4LjQyIiB5Mj0iMTU4LjAwIi8+PGxpbmUgeDE9IjY4LjQyIiB5MT0iMTU4LjAwIiB4Mj0iNjguNDIiIHkyPSIyMzcuMDAiLz48bGluZSB4MT0iMC4wMCIgeTE9IjExOC41MCIgeDI9IjAuMDAiIHkyPSIyMzcuMDAiLz48bGluZSB4MT0iMTM2LjgzIiB5MT0iMTE4LjUwIiB4Mj0iMTM2LjgzIiB5Mj0iMjM3LjAwIi8+PGxpbmUgeDE9IjAuMDAiIHkxPSIwLjAwIiB4Mj0iMC4wMCIgeTI9IjM5LjUwIi8+PGxpbmUgeDE9IjEzNi44MyIgeTE9IjAuMDAiIHgyPSIxMzYuODMiIHkyPSIzOS41MCIvPjwvZz48L3N2Zz4=");
+  background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzYuODMiIGhlaWdodD0iMjM3LjAwIj48ZyBzdHJva2U9InJnYmEoMjAzLDE2OCwxMTcsMC4wOSkiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZmlsbD0ibm9uZSI+PGxpbmUgeDE9IjY4LjQyIiB5MT0iMC4wMCIgeDI9IjEzNi44MyIgeTI9IjM5LjUwIi8+PGxpbmUgeDE9IjEzNi44MyIgeTE9IjM5LjUwIiB4Mj0iMTM2LjgzIiB5Mj0iMTE4LjUwIi8+PGxpbmUgeDE9IjEzNi44MyIgeTE9IjExOC41MCIgeDI9IjY4LjQyIiB5Mj0iMTU4LjAwIi8+PGxpbmUgeDE9IjY4LjQyIiB5MT0iMTU4LjAwIiB4Mj0iMC4wMCIgeTI9IjExOC41MCIvPjxsaW5lIHgxPSIwLjAwIiB5MT0iMTE4LjUwIiB4Mj0iMC4wMCIgeTI9IjM5LjUwIi8+PGxpbmUgeDE9IjAuMDAiIHkxPSIzOS41MCIgeDI9IjY4LjQyIiB5Mj0iMC4wMCIvPjxsaW5lIHgxPSI2OC40MiIgeTE9IjAuMDAiIHgyPSI2OC40MiIgeTI9IjE1OC4wMCIvPjxsaW5lIHgxPSI2OC40MiIgeTE9IjE1OC4wMCIgeDI9IjY4LjQyIiB5Mj0iMjM3LjAwIi8+PGxpbmUgeDE9IjAuMDAiIHkxPSIxMTguNTAiIHgyPSIwLjAwIiB5Mj0iMjM3LjAwIi8+PGxpbmUgeDE9IjEzNi44MyIgeTE9IjExOC41MCIgeDI9IjEzNi44MyIgeTI9IjIzNy4wMCIvPjxsaW5lIHgxPSIwLjAwIiB5MT0iMC4wMCIgeDI9IjAuMDAiIHkyPSIzOS41MCIvPjxsaW5lIHgxPSIxMzYuODMiIHkxPSIwLjAwIiB4Mj0iMTM2LjgzIiB5Mj0iMzkuNTAiLz48L2c+PC9zdmc+");
   background-size:136.83px 237.00px;
   background-repeat:repeat;
 }
-.card{
+.wrap{
   position:relative; z-index:1;
-  width:100%; max-width:680px;
-  padding:64px 48px 48px;
-  text-align:center;
+  max-width:980px; margin:0 auto;
+  padding:56px 32px 72px;
 }
-.card::before{
-  content:""; position:absolute; inset:0;
-  border:1.5px solid var(--line);
-  box-shadow: 0 0 0 1px var(--line-soft);
-}
-.card::after{
-  content:""; position:absolute; inset:9px;
-  border:1px solid var(--line-soft);
-}
-.corner{ position:absolute; width:54px; height:54px; z-index:2; }
-.corner.tl{ top:-18px; left:-18px; }
-.corner.tr{ top:-18px; right:-18px; transform:scaleX(-1); }
-.corner.bl{ bottom:-18px; left:-18px; transform:scaleY(-1); }
-.corner.br{ bottom:-18px; right:-18px; transform:scale(-1,-1); }
+.frame-rule{ display:flex; align-items:center; gap:14px; }
+.frame-rule .ln{ flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--line), transparent); }
+.frame-rule .diamond{ width:6px; height:6px; background:var(--gold-3); transform:rotate(45deg); flex:none; }
+
+.hero{ max-width:640px; margin:0 auto; text-align:center; padding:44px 0 40px; }
 .gold{
-  background: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-2) 42%, var(--gold-3) 60%, var(--gold-1) 100%);
+  background: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-3) 50%, var(--gold-2) 100%);
   -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
 }
 .eyebrow{
-  font-family:'Playfair Display', serif; font-weight:700;
-  letter-spacing:4px; font-size:13px; color:var(--ink-mute);
+  font-family:'IBM Plex Sans', sans-serif; font-weight:600;
+  letter-spacing:3px; font-size:12.5px; color:var(--gold-2);
   text-transform:uppercase;
 }
-.shield{ width:44px; height:44px; margin:22px auto 0; display:block; }
+.shield{ width:42px; height:42px; margin:24px auto 0; display:block; }
 .badge{
   display:inline-flex; align-items:center; gap:8px;
-  margin-top:18px; padding:6px 16px;
+  margin-top:18px; padding:7px 18px;
+  background:rgba(203,168,117,0.07);
   border:1px solid var(--line); border-radius:999px;
-  font-family:'Playfair Display', serif; font-weight:600; letter-spacing:3px;
-  font-size:12px; color:var(--gold-4); text-transform:uppercase;
+  font-family:'IBM Plex Sans', sans-serif; font-weight:600; letter-spacing:2px;
+  font-size:11.5px; color:var(--gold-1); text-transform:uppercase;
 }
 .badge svg{ width:13px; height:13px; }
 h1{
-  font-family:'Playfair Display', serif; font-weight:600;
-  font-size:44px; letter-spacing:0.5px; line-height:1.15;
+  font-family:'Fraunces', serif; font-weight:600; font-optical-sizing:auto;
+  font-size:clamp(34px, 5.2vw, 50px); line-height:1.12;
   text-wrap:balance;
-  margin:26px 0 6px; color:var(--ink);
+  margin:28px 0 8px; color:var(--ink);
 }
-.role{
-  font-family:'Cormorant Garamond', serif; font-weight:500; font-size:21px; color:var(--ink-dim);
-  margin:0;
+.role-line{
+  font-family:'IBM Plex Sans', sans-serif; font-weight:500; font-size:18px;
+  color:var(--ink-dim); margin:0;
 }
 .dept{
-  font-family:'Playfair Display', serif; letter-spacing:2.5px; font-size:14px;
-  color:var(--ink-mute); text-transform:uppercase; margin-top:8px;
+  font-family:'IBM Plex Sans', sans-serif; font-weight:600; letter-spacing:2px; font-size:12.5px;
+  color:var(--ink-mute); text-transform:uppercase; margin-top:10px;
 }
-.rule{ display:flex; align-items:center; gap:12px; margin:34px 0; }
+.rule{ display:flex; align-items:center; gap:12px; margin:36px 0; }
 .rule .ln{ flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--line)); }
 .rule .ln.right{ background:linear-gradient(270deg, transparent, var(--line)); }
-.rule .diamond{ width:7px; height:7px; background:var(--gold-4); transform:rotate(45deg); flex:none; }
+.rule .diamond{ width:7px; height:7px; background:var(--gold-3); transform:rotate(45deg); flex:none; }
 .statement{
-  font-size:19px; font-weight:500; line-height:1.75; color:var(--ink-dim);
-  max-width:500px; margin:0 auto; text-wrap:pretty;
+  font-size:17px; font-weight:400; line-height:1.75; color:var(--ink-dim);
+  margin:0; text-wrap:pretty;
 }
 .statement b{ color:var(--ink); font-weight:600; }
-.meta{
-  display:flex; justify-content:center; gap:36px; flex-wrap:wrap;
-  margin-top:36px; padding-top:26px; border-top:1px solid var(--line-soft);
+
+/* ---- grounded info tiles: real panels, not floating labels ---- */
+.group-label{
+  font-family:'IBM Plex Sans', sans-serif; font-weight:600; letter-spacing:2.5px;
+  font-size:11.5px; color:var(--gold-2); text-transform:uppercase;
+  margin:0 0 14px; padding-left:2px;
 }
-.meta div{ text-align:center; }
-.meta .k{
-  font-family:'Playfair Display', serif; letter-spacing:2px; font-size:11px;
-  color:var(--ink-mute); text-transform:uppercase; margin-bottom:6px;
+.group-label:not(:first-child){ margin-top:36px; }
+.tiles{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:14px;
 }
-.meta .v{ font-size:18px; font-weight:500; color:var(--ink); }
-.meta .v a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--line); }
-.meta .v a:hover{ border-color:var(--gold-2); }
-.meta.contact{ margin-top:26px; padding-top:26px; }
-.disclaimer{
-  font-style:italic; font-size:14px; color:var(--ink-mute);
-  max-width:480px; margin:32px auto 0; line-height:1.6; text-wrap:pretty;
+.tile{
+  background:var(--panel); border:1px solid var(--line-soft); border-radius:12px;
+  padding:18px 20px;
 }
-.registry{ margin-top:40px; padding-top:30px; border-top:1px solid var(--line-soft); text-align:left; }
+.tile .k{
+  font-family:'IBM Plex Sans', sans-serif; font-weight:600; letter-spacing:1.5px;
+  font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; margin-bottom:8px;
+}
+.tile .v{ font-size:17px; font-weight:500; color:var(--ink); }
+.tile .v a{ color:var(--gold-1); text-decoration:none; border-bottom:1px solid var(--line); }
+.tile .v a:hover{ border-color:var(--gold-1); }
+
+.registry{
+  margin-top:48px;
+  background:var(--panel); border:1px solid var(--line-soft); border-radius:14px;
+  padding:30px 28px 10px;
+}
 .registry .heading{
-  font-family:'Playfair Display', serif; font-weight:700; letter-spacing:3px;
-  font-size:13px; color:var(--gold-4); text-transform:uppercase; text-align:center;
-  margin-bottom:20px;
+  font-family:'IBM Plex Sans', sans-serif; font-weight:600; letter-spacing:2.5px;
+  font-size:12px; color:var(--gold-2); text-transform:uppercase; text-align:center;
+  margin-bottom:22px;
 }
-.regtable{ width:100%; border-collapse:collapse; table-layout:fixed; }
-.regtable col.name{ width:36%; }
+.regtable-scroll{ overflow-x:auto; }
+.regtable{ width:100%; min-width:460px; border-collapse:collapse; }
 .regtable th{
-  font-family:'Playfair Display', serif; font-weight:600; letter-spacing:1.5px;
-  font-size:11px; color:var(--ink-mute); text-transform:uppercase;
-  text-align:left; padding:0 10px 10px; border-bottom:1px solid var(--line);
+  font-family:'IBM Plex Sans', sans-serif; font-weight:600; letter-spacing:1.2px;
+  font-size:10.5px; color:var(--ink-mute); text-transform:uppercase;
+  text-align:left; padding:0 14px 12px; border-bottom:1px solid var(--line);
 }
 .regtable th.num, .regtable td.num{ text-align:center; }
 .regtable td{
-  font-size:17px; font-weight:500; color:var(--ink-dim); padding:11px 10px;
-  border-bottom:1px solid var(--line-soft);
+  font-size:15px; color:var(--ink-dim); padding:13px 14px;
   font-variant-numeric: tabular-nums;
 }
-.regtable td.name{ color:var(--ink); font-weight:600; }
-.regtable td.num{ color:var(--gold-4); letter-spacing:0.5px; }
-.regtable tr:last-child td{ border-bottom:none; }
+.regtable tr.row{ border-bottom:1px solid var(--line-soft); }
+.regtable tr.row:nth-child(even){ background:var(--panel-alt); }
+.regtable tr.row:last-child{ border-bottom:none; }
+.regtable td.name{ color:var(--ink); font-weight:600; font-family:'IBM Plex Sans', sans-serif; }
+.regtable td.num{ color:var(--gold-1); font-family:'IBM Plex Mono', monospace; font-weight:500; letter-spacing:0.3px; }
+
+.disclaimer{
+  font-style:italic; font-size:13.5px; color:var(--ink-mute);
+  max-width:520px; margin:40px auto 0; line-height:1.6; text-align:center; text-wrap:pretty;
+}
 </style>
 <div class="lattice"></div>
-<div class="card">
-  <div class="corner tl"><svg viewBox="0 0 96 96" fill="none">
-<path d="M4 96 L4 22" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<path d="M4 4 L78 4" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<rect x="0" y="0" width="9" height="9" fill="#b3853f" transform="rotate(45 4 4)"/>
-</svg></div>
-  <div class="corner tr"><svg viewBox="0 0 96 96" fill="none">
-<path d="M4 96 L4 22" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<path d="M4 4 L78 4" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<rect x="0" y="0" width="9" height="9" fill="#b3853f" transform="rotate(45 4 4)"/>
-</svg></div>
-  <div class="corner bl"><svg viewBox="0 0 96 96" fill="none">
-<path d="M4 96 L4 22" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<path d="M4 4 L78 4" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<rect x="0" y="0" width="9" height="9" fill="#b3853f" transform="rotate(45 4 4)"/>
-</svg></div>
-  <div class="corner br"><svg viewBox="0 0 96 96" fill="none">
-<path d="M4 96 L4 22" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<path d="M4 4 L78 4" stroke="rgba(90,64,26,0.4)" stroke-width="1.4"/>
-<rect x="0" y="0" width="9" height="9" fill="#b3853f" transform="rotate(45 4 4)"/>
-</svg></div>
+<div class="wrap">
+  <div class="frame-rule"><span class="ln"></span><span class="diamond"></span><span class="ln"></span></div>
 
-  <div class="eyebrow">King&rsquo;s College Hospital London in Jeddah</div>
-  <div class="shield"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M50 6 L88 20 V48 C88 74 70 90 50 96 C30 90 12 74 12 48 V20 Z" stroke="#8a4a0f" stroke-width="4" fill="none"/>
-<path d="M32 50 L45 63 L70 34" stroke="#8a4a0f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <div class="hero">
+    <div class="eyebrow">King&rsquo;s College Hospital London in Jeddah</div>
+    <div class="shield"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 6 L88 20 V48 C88 74 70 90 50 96 C30 90 12 74 12 48 V20 Z" stroke="#cba875" stroke-width="4" fill="none"/>
+<path d="M32 50 L45 63 L70 34" stroke="#e8c68c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 </svg></div>
-  <div class="badge"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13 L10 18 L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Verified Personal Seal</div>
+    <div class="badge"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13 L10 18 L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Verified Personal Seal</div>
 
-  <h1>Abdulrahman Alotaibi</h1>
-  <p class="role">Senior Procurement Specialist</p>
-  <div class="dept">Procurement &amp; Supply Chain Department</div>
+    <h1>Abdulrahman Alotaibi</h1>
+    <p class="role-line">Senior Procurement Specialist</p>
+    <div class="dept">Procurement &amp; Supply Chain Department</div>
 
-  <div class="rule"><span class="ln"></span><span class="diamond"></span><span class="ln right"></span></div>
+    <div class="rule"><span class="ln"></span><span class="diamond"></span><span class="ln right"></span></div>
 
-  <p class="statement">
-    The QR seal on this document is <b>Abdulrahman Alotaibi&rsquo;s</b> personal seal,
-    used to sign Certificates of Appreciation issued to cooperative trainees of the
-    Procurement &amp; Supply Chain Department at King&rsquo;s College Hospital London in Jeddah.
-  </p>
-
-  <div class="meta">
-    <div><div class="k">Program</div><div class="v">Cooperative Training</div></div>
-    <div><div class="k">Cohort</div><div class="v">2026</div></div>
-    <div><div class="k">Role</div><div class="v">Certifying Officer</div></div>
+    <p class="statement">
+      The QR seal on this document is <b>Abdulrahman Alotaibi&rsquo;s</b> personal seal,
+      used to sign Certificates of Appreciation issued to cooperative trainees of the
+      Procurement &amp; Supply Chain Department at King&rsquo;s College Hospital London in Jeddah.
+    </p>
   </div>
 
-  <div class="meta contact">
-    <div><div class="k">Email</div><div class="v"><a href="mailto:abdulrahman.alotaibi@kch.sa">abdulrahman.alotaibi@kch.sa</a></div></div>
-    <div><div class="k">Mobile</div><div class="v"><a href="tel:+966581668889">+966 58 166 8889</a></div></div>
-    <div><div class="k">Employee ID</div><div class="v">23</div></div>
+  <div class="group-label">Assignment</div>
+  <div class="tiles">
+    <div class="tile"><div class="k">Program</div><div class="v">Cooperative Training</div></div>
+    <div class="tile"><div class="k">Cohort</div><div class="v">2026</div></div>
+    <div class="tile"><div class="k">Role</div><div class="v">Certifying Officer</div></div>
+  </div>
+
+  <div class="group-label">Contact</div>
+  <div class="tiles">
+    <div class="tile"><div class="k">Email</div><div class="v"><a href="mailto:abdulrahman.alotaibi@kch.sa">abdulrahman.alotaibi@kch.sa</a></div></div>
+    <div class="tile"><div class="k">Mobile</div><div class="v"><a href="tel:+966581668889">+966 58 166 8889</a></div></div>
+    <div class="tile"><div class="k">Employee ID</div><div class="v">23</div></div>
   </div>
 
   <div class="registry">
     <div class="heading">Certificate Registry &mdash; 2026 Cohort</div>
-    <table class="regtable">
-      <colgroup><col class="name"><col><col></colgroup>
-      <tr><th>Name</th><th class="num">Recommendation</th><th class="num">Appreciation</th></tr>
-      <tr><td class="name">Reema Hezam</td><td class="num">REC-2026-01</td><td class="num">COA-2026-01</td></tr>
-      <tr><td class="name">Kamiliya Bargah</td><td class="num">REC-2026-02</td><td class="num">COA-2026-02</td></tr>
-      <tr><td class="name">Maya Niazi</td><td class="num">REC-2026-03</td><td class="num">COA-2026-03</td></tr>
-      <tr><td class="name">Lama Alattas</td><td class="num">REC-2026-04</td><td class="num">COA-2026-04</td></tr>
-      <tr><td class="name">Layan Albasisi</td><td class="num">REC-2026-05</td><td class="num">COA-2026-05</td></tr>
-      <tr><td class="name">Shahad Aljadaani</td><td class="num">REC-2026-06</td><td class="num">COA-2026-06</td></tr>
-    </table>
+    <div class="regtable-scroll">
+      <table class="regtable">
+        <tr><th>Name</th><th class="num">Recommendation</th><th class="num">Appreciation</th></tr>
+        <tr class="row"><td class="name">Reema Hezam</td><td class="num">REC-2026-01</td><td class="num">COA-2026-01</td></tr>
+        <tr class="row"><td class="name">Kamiliya Bargah</td><td class="num">REC-2026-02</td><td class="num">COA-2026-02</td></tr>
+        <tr class="row"><td class="name">Maya Niazi</td><td class="num">REC-2026-03</td><td class="num">COA-2026-03</td></tr>
+        <tr class="row"><td class="name">Lama Alattas</td><td class="num">REC-2026-04</td><td class="num">COA-2026-04</td></tr>
+        <tr class="row"><td class="name">Layan Albasisi</td><td class="num">REC-2026-05</td><td class="num">COA-2026-05</td></tr>
+        <tr class="row"><td class="name">Shahad Aljadaani</td><td class="num">REC-2026-06</td><td class="num">COA-2026-06</td></tr>
+      </table>
+    </div>
   </div>
 
   <p class="disclaimer">
     This seal reflects the personal professional endorsement of the undersigned and does not
     constitute an official institutional document of King&rsquo;s College Hospital London.
   </p>
+
+  <div class="frame-rule" style="margin-top:56px"><span class="ln"></span><span class="diamond"></span><span class="ln"></span></div>
 </div>
