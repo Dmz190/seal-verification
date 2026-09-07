@@ -139,20 +139,28 @@ h1{
   max-width:520px; margin:40px auto 0; line-height:1.6; text-align:center; text-wrap:pretty;
 }
 
-.tile.sealtile{
+.tile.stamptile,
+.tile.signtile{
   display:flex; flex-direction:column; align-items:center; text-align:center;
-  padding:20px 20px 18px;
+  padding:22px 20px 18px;
 }
-.tile.sealtile .k{ margin-bottom:12px; }
+.tile.stamptile .k, .tile.signtile .k{ margin-bottom:14px; }
+
+.tile.signtile{
+  background:#1c2846; border-color:rgba(203,168,117,0.24);
+}
+
+/* ---- personal seal, shown on a light card (its ink needs a light ground) ---- */
 .seal-card{
   background:#f7f2e6; border-radius:8px;
   padding:12px 15px 9px;
   box-shadow:0 10px 22px rgba(0,0,0,0.4);
 }
-.seal-card img{
-  width:112px; height:auto; display:block;
-}
-.tile.sealtile .signcap{
+.seal-card img{ width:104px; height:auto; display:block; }
+
+/* ---- signature, shown in white directly on the tile's dark ground ---- */
+.sign-mark{ width:150px; height:auto; display:block; }
+.tile.signtile .signcap{
   margin-top:12px;
   font-family:'IBM Plex Sans', sans-serif; font-weight:600; font-size:14px;
   color:var(--ink);
@@ -198,9 +206,13 @@ h1{
 
   <div class="group-label">Signed &amp; Sealed</div>
   <div class="tiles compact">
-    <div class="tile sealtile">
+    <div class="tile stamptile">
       <div class="k">Personal Seal</div>
       <div class="seal-card"><img src="seal_web.png" alt="Personal seal and signature of Abdulrahman Alotaibi"></div>
+    </div>
+    <div class="tile signtile">
+      <div class="k">Signature</div>
+      <img class="sign-mark" src="signature_white.png" alt="Signature of Abdulrahman Alotaibi">
       <div class="signcap">Abdulrahman Alotaibi</div>
     </div>
   </div>
